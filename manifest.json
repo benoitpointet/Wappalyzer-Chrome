@@ -1,0 +1,28 @@
+{
+	"update_url":        "http://clients2.google.com/service/update2/crx",
+	"name":              "Wappalyzer (beta)",
+	"icons": {
+		"32":            "icon_32.png",
+		"128":           "icon_128.png"
+	},
+	"version":           "0.3",
+	"description":       "Wappalyzer uncovers the technologies used on websites.",
+	"browser_action":    {
+		"default_icon":  "icon_32.png",
+		"default_title": "Wappalyzer - click for details",
+		"popup":         "popup.html"
+	},
+	"background_page":   "bg.html",
+	"content_scripts":   [
+		{
+			"matches":   [ "http://*/*", "https://*/*" ],
+			"js":        [ "content.js" ],
+			"run_at":    "document_idle"
+		}
+	],
+	"permissions":       [
+		"tabs",
+        "http://*/*",
+        "https://*/*"
+		]
+}
