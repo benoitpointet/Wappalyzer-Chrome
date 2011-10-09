@@ -111,6 +111,7 @@ wappalyzer.apps = {
 	'Microsoft ASP.NET':     { cats: { 1: 18 }, html: /<input[^>]+name=("|')__VIEWSTATE/, headers: { 'X-Powered-By': /ASP\.NET/, 'X-AspNet-Version': /.+/ } },
 	'MiniBB':                { cats: { 1:  2 }, html: /<a href=("|')[^>]+minibb.+\s+<!--End of copyright link/i },
 	'Mint':                  { cats: { 1: 10 }, html: /<script[^>]* src=("|')[^>]*mint\/\?js/i },
+	'mixpanel':              { cats: { 1: 10 }, html: /<script[^>]* src=("|')[^>]*api.mixpanel.com\/track/i },
 	'MochiKit':              { cats: { 1: 12 }, html: /<script[^>]* src=("|')[^>]*MochiKit\.js/i },
 	'Modernizr':             { cats: { 1: 12 }, html: /<script[^>]* src=("|')[^>]*modernizr[^>]*\.js/i },
 	'MODx':                  { cats: { 1:  1 }, html: /(<a[^>]+>Powered by MODx<\/a>|var el= \$\('modxhost'\);|<script type=("|')text\/javascript("|')>var MODX_MEDIA_PATH = "media";)/i },
