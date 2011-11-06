@@ -20,7 +20,7 @@ var wappalyzer = (function(){
 
 					switch ( request.msg ) {
 						case 'analyze':
-							wappalyzer.analyze(sender.tab.id, sender.tab.url, request.html);
+							wappalyzer.analyze(sender.tab.id, sender.tab.url, request.html, request.env);
 
 							break;
 						case 'get_apps':
@@ -46,7 +46,8 @@ var wappalyzer = (function(){
 			});
 		},
 
-		analyze: function(tabId, url, html) {
+		analyze: function(tabId, url, html, environmentVars) {
+            var app;
 			chrome.browserAction.setBadgeText({ tabId: tabId, text: '' });
 
 			wappalyzer.tabCache[tabId] = {
@@ -54,33 +55,55 @@ var wappalyzer = (function(){
 				appsDetected: {}
 			};
 
-			if ( html ) {
-				if ( html.length > 50000 ) {
-					html = html.substring(0, 25000) + html.substring(html.length - 25000, html.length);
-				}
+            if ( html && html.length > 50000 ) {
+                html = html.substring(0, 25000) + html.substring(html.length - 25000, html.length);
+            }
 
-				for ( var appName in wappalyzer.apps ) {
-					if ( typeof(wappalyzer.tabCache[tabId].appsDetected[appName]) == 'undefined' ) {
-						if ( typeof(wappalyzer.apps[appName].html) != 'undefined' ) {
-							var regex = wappalyzer.apps[appName].html;
+            for ( var appName in wappalyzer.apps ) {
+                app = wappalyzer.apps[appName];
+                // Scan html
+                if ( html ) {
 
-							if ( regex.test(html) ) {
-								wappalyzer.register(tabId, appName);
-							}
-						}
+                    if ( typeof(wappalyzer.tabCache[tabId].appsDetected[appName]) == 'undefined' ) {
+                        if ( typeof(app.html) != 'undefined' ) {
+                            var regex = app.html;
 
-						if ( url && typeof(wappalyzer.apps[appName].url) != 'undefined' ) {
-							var regex = wappalyzer.apps[appName].url;
+                            if ( regex.test(html) ) {
+                                wappalyzer.register(tabId, appName);
+                            }
+                        }
+                    }
+                }
 
-							if ( regex.test(url) ) {
-								wappalyzer.register(tabId, appName);
-							}
-						}
-					}
-				}
+                // Scan url
+                if ( typeof(wappalyzer.tabCache[tabId].appsDetected[appName]) == 'undefined' ) {
+                    if ( url && typeof(app.url) != 'undefined' ) {
+                        var regex = app.url;
 
-				html = null;
+                        if ( regex.test(url) ) {
+                            wappalyzer.register(tabId, appName);
+                        }
+                    }
+                }
+
+                // Scan environment variables
+                if ( typeof(wappalyzer.tabCache[tabId].appsDetected[appName]) == 'undefined' ) {
+                    if ( environmentVars && typeof app.env != 'undefined' ) {
+                        var regex = app.env;
+
+                        for ( var i in environmentVars ) {
+                            try {
+                                if ( regex.test(environmentVars[i]) ) {
+                                    wappalyzer.register(tabId, appName);
+                                }
+                            }
+                            catch(e) { }
+                        }
+                    }
+                }
 			}
+
+            html = null;
 		},
 
 		register: function(tabId, appName) {
