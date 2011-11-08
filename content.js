@@ -7,11 +7,7 @@
 		init: function() {
 			self.log('init');
 
-            if (document.readyState == 'complete') {
-                self.onPageLoad();
-            } else {
-                document.addEventListener('DOMContentLoaded', self.onPageLoad, false);
-            }
+            document.addEventListener('DOMContentLoaded', self.onPageLoad, false);
 
         },
 
@@ -24,7 +20,8 @@
 		onPageLoad: function(e) {
 			self.log('onPageLoad');
 
-			self.getEnvironmentVars();
+            if (document.body)
+                self.getEnvironmentVars();
 		},
 
 		getEnvironmentVars: function() {
