@@ -10,8 +10,9 @@
             if (document.readyState == 'complete') {
                 self.onPageLoad();
             } else {
-                addEventListener('DOMContentLoaded', self.onPageLoad, false);
+                document.addEventListener('DOMContentLoaded', self.onPageLoad, false);
             }
+
         },
 
 		log: function(message) {
