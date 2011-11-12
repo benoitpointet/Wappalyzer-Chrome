@@ -7,7 +7,7 @@
 		init: function() {
 			self.log('init');
 
-            document.addEventListener('DOMContentLoaded', self.onPageLoad, false);
+            self.onPageLoad();
 
         },
 
