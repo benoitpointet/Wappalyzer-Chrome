@@ -27,9 +27,9 @@
 		getEnvironmentVars: function() {
 			self.log('getEnvironmentVars');
 
-			//if ( document.contentType != 'text/html' ) {
-				//return;
-			//}
+            if (typeof document.documentElement.innerHTML == 'undefined' ) {
+                return;
+            }
 
 			var environmentVars = '';
 
