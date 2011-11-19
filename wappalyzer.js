@@ -51,7 +51,7 @@ var wappalyzer = (function(){
 			chrome.browserAction.setBadgeText({ tabId: tabId, text: '' });
 
 			wappalyzer.tabCache[tabId] = {
-				count:        0,
+				count: 0,
 				appsDetected: {}
 			};
 
@@ -70,6 +70,44 @@ var wappalyzer = (function(){
 
                             if ( regex.test(html) ) {
                                 wappalyzer.register(tabId, appName);
+                            }
+                        }
+                    }
+                }
+
+                // Scan script tags
+                if ( html && typeof app.script != 'undefined' ) {
+                    var
+                        regex = /<script[^>]+src=("|')([^"']+)\1/ig,
+                        match = []
+                        ;
+
+                    while ( match = regex.exec(html) ) {
+                        if ( app.script.test(match[2]) ) {
+                            wappalyzer.register(tabId, appName);
+
+                            break;
+                        }
+                    }
+                }
+
+                // Scan meta tags
+                if ( html && typeof app.meta != 'undefined' ) {
+                    var
+                        regex = /<meta[^>]+>/ig,
+                        match = []
+                        ;
+
+                    while ( match = regex.exec(html) ) {
+                        for ( meta in app.meta ) {
+                            if ( new RegExp('name=["\']' + meta + '["\']', 'i').test(match) ) {
+                                var content = match.toString().match(/content=("|')([^"']+)("|')/i);
+
+                                if ( app.meta[meta].test(content[2]) ) {
+                                    wappalyzer.register(tabId, appName);
+
+                                    break;
+                                }
                             }
                         }
                     }
