@@ -24,7 +24,8 @@ if ( typeof wappalyzer != 'undefined' ) {
 		22: { name: 'Web server',           plural: 'Web servers' },
 		23: { name: 'Cache tool',           plural: 'Cache tools' },
 		24: { name: 'Rich text editor',     plural: 'Rich text editors' },
-		25: { name: 'Javascript Graphics',  plural: 'Javascript Graphics' }
+		25: { name: 'Javascript Graphics',  plural: 'Javascript Graphics' },
+		26: { name: 'Mobile framework',     plural: 'Mobile frameworks' }
 	};
 
 	wappalyzer.apps = {
@@ -104,11 +105,14 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'iWeb':                  { cats: { 1: 20 }, meta: { 'generator': /iWeb/i } },
 		'Jalios':                { cats: { 1:  1 }, meta: { 'generator': /Jalios/i } },
 		'Javascript Infovis Toolkit': { cats: { 1: 25 }, script: /jit.*\.js/, env: '/^\$jit$/' },
+		'Jo':                    { cats: { 1: 26, 2: 12 }, script: /[^a-zA-Z]jo.*\.js/i, env:/^jo$/ },
 		'Joomla':                { cats: { 1:  1 }, meta: { 'generator': /Joomla/i }, html: /<!\-\- JoomlaWorks "K2"/i, headers: { 'X-Content-Encoded-By': /Joomla/ } },
 		'jqPlot':                { cats: { 1: 25 }, script: /jqplot.*\.js/, env: '/^jQuery.jqplot$/' },
+		'jQTouch':               { cats: { 1: 26 }, script: /jqtouch.*\.js/i, env:/^jQT$/ },
 		'jQuery UI':             { cats: { 1: 12 }, script: /jquery\-ui.*\.js/ },
 		'jQuery':                { cats: { 1: 12 }, script: /jquery.*.js/, env: /^jQuery$/ },
-		'jQuery Sparklines':     { cats: { 1: 25 }, script: /sparkline.*\.js/i, env: '/^jQuery.fn.sparkline$/' },
+		'jQuery Mobile':         { cats: { 1: 26 }, script: /jquery\.mobile.*\.js/i },
+		'jQuery Sparklines':     { cats: { 1: 25 }, script: /jquery\.sparkline.*\.js/i },
 		'JS Charts':             { cats: { 1: 25 }, script: /jscharts.*\.js/i, env: '/^JSChart$/' },
 		'JTL Shop':              { cats: { 1:  6 }, html: /(<input[^>]+name=('|")JTLSHOP|<a href=('|")jtl\.php)/i },
 		'K2':                    { cats: { 1: 19 }, html: /<!\-\- JoomlaWorks "K2"/ },
@@ -178,6 +182,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'S.Builder':             { cats: { 1:  1 }, meta: { 'generator': /S\.Builder/i } },
 		's9y':                   { cats: { 1:  1 }, meta: { 'generator': /Serendipity/i } },
 		'script.aculo.us':       { cats: { 1: 12 }, script: /(scriptaculous|protoaculous)\.js/, env: /^Scriptaculous$/ },
+		'Sencha Touch':          { cats: { 1: 26, 2: 12}, script: /sencha\-touch.*\.js/},
 		'ShareThis':             { cats: { 1:  5 }, script: /w\.sharethis\.com\// },
 		'sIFR':                  { cats: { 1: 17 }, script: /sifr\.js/ },
 		'Site Meter':            { cats: { 1: 10 }, script: /sitemeter.com\/js\/counter\.js\?site=/ },
@@ -207,7 +212,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'TYPO3':                 { cats: { 1:  1 }, meta: { 'generator': /TYPO3/i }, html: /(<(script[^>]* src|link[^>]* href)=[^>]*fileadmin)/i, url: /\/typo3/i },
 		'Ubercart':              { cats: { 1:  6 }, script: /uc_cart\/uc_cart_block\.js/ },
 		'Umbraco':               { cats: { 1:  1 }, headers: { 'X-Umbraco-Version': /.+/ } },
-		'Underscore.js':         { cats: { 1: 12 }, script: /underscore.*\.js/, env: /^_.VERSION$/ },
+		'Underscore.js':         { cats: { 1: 12 }, script: /underscore.*\.js/ },
 		'Vanilla':               { cats: { 1:  2 }, html: /<body id=("|')(DiscussionsPage|vanilla)/i, headers: { 'X-Powered-By': /Vanilla/ } },
 		'Varnish':               { cats: { 1: 22 }, headers: { 'X-Varnish': /.+/, 'X-Varnish-Age': /.+/, 'X-Varnish-Cache': /.+/, 'X-Varnish-Action': /.+/, 'X-Varnish-Hostname': /.+/, 'Via': /Varnish/ } },
 		'vBulletin':             { cats: { 1:  2 }, meta: { 'generator': /vBulletin/i } },
@@ -228,6 +233,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'Webtrends':             { cats: { 1: 10 }, html: /<img[^>]+id=("|')DCSIMG("|')[^>]+webtrends/i },
 		'Weebly':                { cats: { 1:  1 }, html: /<[^>]+class=("|')weebly/i },
 		'WikkaWiki':             { cats: { 1:  8 }, meta: { 'generator': /WikkaWiki/ }, html: /Powered by <a href=("|')[^>]+WikkaWiki/i },
+		'wink':                  { cats: { 1: 26, 2: 12 }, script: /(\_base\/js\/base|wink).*\.js/i, env:/^wink$/ },
 		'Wolf CMS':              { cats: { 1:  1 }, html: /<a href=("|')[^>]+wolfcms.org.+Wolf CMS.+inside/i },
 		'Woopra':                { cats: { 1: 10 }, script: /static\.woopra\.com/ },
 		'WordPress':             { cats: { 1:  1, 2: 11 }, meta: { 'generator': /WordPress/i }, html: /<link rel=("|')stylesheet("|') [^>]+wp-content/i },
@@ -235,6 +241,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'XenForo':               { cats: { 1:  2 }, html: /(jQuery\.extend\(true, XenForo|Forum software by XenForo&trade;|<!\-\-XF:branding)/ },
 		'XiTi':                  { cats: { 1: 10 }, html: /<[^>]+src=("|')[^>]+xiti.com\/hit.xiti/i },
 		'XMB':                   { cats: { 1:  2 }, html: /<!-- Powered by XMB/i },
+		'XUI':                   { cats: { 1: 26, 2: 12 }, script: /[^a-zA-Z]xui.*\.js/i, env:/^x\$$/ },
 		'XOOPS':                 { cats: { 1:  1 }, meta: { 'generator': /XOOPS/i } },
 		'xtCommerce':            { cats: { 1:  6 }, meta: { 'generator': /xt:Commerce/ }, html: /<div class=("|')copyright("|')>.+<a[^>]+>xt:Commerce/i },
 		'YaBB':                  { cats: { 1:  2 }, html: /Powered by <a href=("|')[^>]+yabbforum/i },
