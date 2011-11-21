@@ -105,7 +105,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'iWeb':                  { cats: { 1: 20 }, meta: { 'generator': /iWeb/i } },
 		'Jalios':                { cats: { 1:  1 }, meta: { 'generator': /Jalios/i } },
 		'Javascript Infovis Toolkit': { cats: { 1: 25 }, script: /jit.*\.js/, env: '/^\$jit$/' },
-		'Jo':                    { cats: { 1: 26, 2: 12 }, script: /[^a-zA-Z]jo.*\.js/i, env:/^jo$/ },
+		'Jo':                    { cats: { 1: 26, 2: 12 }, script: /[^a-zA-Z]jo.*\.js/i },
 		'Joomla':                { cats: { 1:  1 }, meta: { 'generator': /Joomla/i }, html: /<!\-\- JoomlaWorks "K2"/i, headers: { 'X-Content-Encoded-By': /Joomla/ } },
 		'jqPlot':                { cats: { 1: 25 }, script: /jqplot.*\.js/, env: '/^jQuery.jqplot$/' },
 		'jQTouch':               { cats: { 1: 26 }, script: /jqtouch.*\.js/i, env:/^jQT$/ },
