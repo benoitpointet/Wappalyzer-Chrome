@@ -216,6 +216,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'Ubercart':              { cats: { 1:  6 }, script: /uc_cart\/uc_cart_block\.js/ },
 		'Umbraco':               { cats: { 1:  1 }, headers: { 'X-Umbraco-Version': /.+/ } },
 		'Underscore.js':         { cats: { 1: 12 }, script: /underscore.*\.js/ },
+		'UserRules':             { cats: { 1: 13 }, html: /var _usrp =/ , env: /^\_usrp$/ },
 		'Vanilla':               { cats: { 1:  2 }, html: /<body id=("|')(DiscussionsPage|vanilla)/i, headers: { 'X-Powered-By': /Vanilla/ } },
 		'Varnish':               { cats: { 1: 22 }, headers: { 'X-Varnish': /.+/, 'X-Varnish-Age': /.+/, 'X-Varnish-Cache': /.+/, 'X-Varnish-Action': /.+/, 'X-Varnish-Hostname': /.+/, 'Via': /Varnish/ } },
 		'vBulletin':             { cats: { 1:  2 }, meta: { 'generator': /vBulletin/i } },
