@@ -153,6 +153,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'OneStat':               { cats: { 1: 10 }, html: /var p=("|')http("|')\+\(d\.URL\.indexOf\('https:'\)==0\?'s':''\)\+("|'):\/\/stat\.onestat\.com\/stat\.aspx\?tagver/i },
 		'OpenCart':              { cats: { 1:  6 }, html: /(Powered By <a href=("|')[^>]+OpenCart|route = getURLVar\(("|')route)/i },
 		'openEngine':            { cats: { 1:  1 }, html: /<meta[^>]+openEngine/i },
+        'OpenLayers':            { cats: { 1:  5 }, script: /openlayers/, env:/^OpenLayers$/ },
 		'osCommerce':            { cats: { 1:  6 }, html: /<!-- header_eof \/\/-->|<a[^>]*(osCsid|cPath)/i },
 		'osCSS':                 { cats: { 1:  6 }, html: /<body onload=("|')window\.defaultStatus='oscss templates';("|')/i },
 		'PANSITE':               { cats: { 1:  1 }, meta: { 'generator': /PANSITE/i } },
