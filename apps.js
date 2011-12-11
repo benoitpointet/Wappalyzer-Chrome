@@ -91,6 +91,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'FrontPage':             { cats: { 1: 20 }, meta: { 'generator': /Microsoft FrontPage/ }, html: /<html[^>]+urn:schemas\-microsoft\-com:office:office/i },
 		'Get Satisfaction':      { cats: { 1: 13 }, html: /var feedback_widget = new GSFN\.feedback_widget\(feedback_widget_options\)/ },
 		'Google Analytics':      { cats: { 1: 10 }, script: /(\.google\-analytics\.com\/ga\.js|google-analytics\.com\/urchin\.js)/, env: /^gaGlobal$/ },
+		'Google App Engine':     { cats: { 1: 22 }, headers: { 'Server': /Google Frontend/i } },
 		'Google Font API':       { cats: { 1: 17 }, html: /<link[^>]* href=("|')http:\/\/fonts\.googleapis\.com/ },
 		'Google Friend Connect': { cats: { 1:  5 }, script: /google.com\/friendconnect/ },
 		'Google Maps':           { cats: { 1:  5 }, script: /(maps\.google\.com\/maps\?file=api|maps\.google\.com\/maps\/api\/staticmap)/ },
