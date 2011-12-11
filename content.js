@@ -35,36 +35,31 @@
 
 			try {
 				var element = document.createElement('wappalyzerData');
-
 				element.setAttribute('id',    'wappalyzerData');
 				element.setAttribute('style', 'display: none');
 
-				document.documentElement.appendChild(element);
-
-				location.href = 'javascript:' +
-					'(function() {' +
-						'try {' +
-							'var event = document.createEvent("Events");' +
-
-							'event.initEvent("wappalyzerEvent", true, false);' +
-
-							'var environmentVars = "";' +
-
-							'for ( var i in window ) environmentVars += i + " ";' +
-
-							'document.getElementById("wappalyzerData").appendChild(document.createComment(environmentVars));' +
-
-							'document.getElementById("wappalyzerData").dispatchEvent(event);' +
-						'}' +
-						'catch(e) { }' +
-					'})();';
+				var script = document.createElement('script');
+				script.setAttribute('id',    'wappalyzerEnvDetection');
+				script.setAttribute('id',    'text/javascript');
+				script.innerHTML = '(function() {' +
+                    'try {' +
+                        'var event = document.createEvent("Events");' +
+                        'event.initEvent("wappalyzerEvent", true, false);' +
+                        'var environmentVars = "";' +
+                        'for ( var i in window ) environmentVars += i + " ";' +
+                        'document.getElementById("wappalyzerData").appendChild(document.createComment(environmentVars));' +
+                        'document.getElementById("wappalyzerData").dispatchEvent(event);' +
+                    '}' +
+                    'catch(e) { }' +
+                '})();';
 
 				element.addEventListener('wappalyzerEvent', (function(event) {
 					environmentVars = event.target.childNodes[0].nodeValue;
 
 					self.log('getEnvironmentVars: ' + environmentVars);
 
-					element.parentNode.removeChild(element);
+					document.documentElement.removeChild(element);
+					document.documentElement.removeChild(script);
 
                     chrome.extension.sendRequest({
                         html: document.documentElement.innerHTML,
@@ -72,6 +67,9 @@
 						env: environmentVars.split(' ')
                     });
 				}), true);
+
+				document.documentElement.appendChild(element);
+				document.documentElement.appendChild(script);
 			}
 			catch(e) { }
 
