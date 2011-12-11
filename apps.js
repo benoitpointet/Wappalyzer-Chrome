@@ -181,6 +181,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'Reddit':                { cats: { 1:  2 }, html: /(<script[^>]+>var reddit = {|<a[^>]+Powered by Reddit|powered by <a[^>]+>reddit<)/i, url: /^(www.)?reddit\.com/ },
 		'Redmine':               { cats: { 1: 13 }, meta: { 'description': /Redmine/i }, html: /Powered by <a href=("|')[^>]+Redmine/i },
 		'Reinvigorate':          { cats: { 1: 10 }, html: /reinvigorate\.track\("/ },
+		'RequireJS':             { cats: { 1: 12 }, script: /require.*\.js/ , env: /^requirejs$/},
 		'S.Builder':             { cats: { 1:  1 }, meta: { 'generator': /S\.Builder/i } },
 		's9y':                   { cats: { 1:  1 }, meta: { 'generator': /Serendipity/i } },
 		'script.aculo.us':       { cats: { 1: 12 }, script: /(scriptaculous|protoaculous)\.js/, env: /^Scriptaculous$/ },
