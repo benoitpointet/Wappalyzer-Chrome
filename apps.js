@@ -48,6 +48,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'Blogger':               { cats: { 1: 11 }, meta: { 'generator': /blogger/i }, url: /^(www.)?.+\.blogspot\.com/i },
 		'Bugzilla':              { cats: { 1: 13 }, html: /<[^>]+(id|title|name)=("|')bugzilla/i },
 		'Burning Board':         { cats: { 1:  2 }, html: /<a href=('|")[^>]+woltlab\.com.+Burning Board/i },
+		'Chameleon':             { cats: { 1:  1 }, meta: { 'generator': /chameleon\-cms/i } },
 		'chartbeat':             { cats: { 1: 10 }, html: /function loadChartbeat\(\) {/i },
 		'Chamilo':               { cats: { 1: 21 }, meta: { 'generator': /Chamilo/i }, headers: { 'X-Powered-By': /Chamilo/ } },
 		'Cherokee':              { cats: { 1: 22 }, headers: { 'Server': /Cherokee/i } },
