@@ -80,6 +80,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'DotNetNuke':            { cats: { 1:  1 }, meta: { 'generator': /DotNetNuke/i }, html: /<!\-\- by DotNetNuke Corporation/i },
 		'DreamWeaver':           { cats: { 1: 20 }, html: /(<!\-\-[^>]*(InstanceBeginEditable|Dreamweaver[^>]+target|DWLayoutDefaultTable)|function MM_preloadImages\(\) {)/ },
 		'Drupal':                { cats: { 1:  1 }, script: /drupal\.js/, html: /(jQuery\.extend\(Drupal\.settings, \{|Drupal\.extend\(\{ settings: \{|<link[^>]+sites\/(default|all)\/themes\/|<style[^>]+sites\/(default|all)\/(themes|modules)\/)/i, headers: { 'X-Drupal-Cache': /.*/, 'Expires': /19 Nov 1978/ }, env: /^Drupal$/ },
+		'Drupal Commerce':       { cats: { 1:  6 }, html: /id\=\"block\-commerce\-cart\-cart|class\=\"commerce\-product\-field/i },
 		'Dynamicweb':            { cats: { 1:  1 }, meta: { 'generator': /Dynamicweb/i } },
 		'e107':                  { cats: { 1:  1 }, script: /e107\.js/ },
 		'Exhibit':               { cats: { 1: 25 }, script: /exhibit.*\.js/, env: '/^Exhibit$/' },
