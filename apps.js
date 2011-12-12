@@ -236,7 +236,7 @@ if ( typeof wappalyzer != 'undefined' ) {
 		'WebPublisher':          { cats: { 1:  1 }, meta: { 'generator': /WEB\|Publisher/i } },
 		'WebsiteBaker':          { cats: { 1:  1 }, meta: { 'generator': /WebsiteBaker/i } },
 		'Webtrekk':              { cats: { 1: 10 }, html: /var webtrekk = new Object/ },
-		'Webtrends':             { cats: { 1: 10 }, html: /<img[^>]+id=("|')DCSIMG("|')[^>]+webtrends/i },
+		'Webtrends':             { cats: { 1: 10 }, html: /<img[^>]+id=("|')DCSIMG("|')[^>]+webtrends/i, env: /WTOptimize/i },
 		'Weebly':                { cats: { 1:  1 }, html: /<[^>]+class=("|')weebly/i },
 		'WikkaWiki':             { cats: { 1:  8 }, meta: { 'generator': /WikkaWiki/ }, html: /Powered by <a href=("|')[^>]+WikkaWiki/i },
 		'wink':                  { cats: { 1: 26, 2: 12 }, script: /(\_base\/js\/base|wink).*\.js/i, env:/^wink$/ },
